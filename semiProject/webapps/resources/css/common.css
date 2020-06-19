@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+#tableHead {
+	background-color: #F3F3F3;
+}
+
+.selected {
+	background-color: #FFFED7;
+}
+
+#ysearch {
+	background: white;
+}
+
+#mytable{
+	text-align : center;
+}
+#mytable th{
+	text-align : center;
+}
+
+.change2 {
+	display:none;
+}
+
+@media (min-width: 0px) and (max-width:990px) {
+	#homepageLogo {
+		display : none;
+	}
+}
+
+
+#userTitle {
+	
+	width : 300px;
+	height : 80px;
+	position:absolute;
+	right : 0%;
+	top : 50%;
+	padding-top : 17px;
+	margin-right : -10px;
+}
+
+#userUl {
+	width : 0;
+	height : 0;
+}
+
+#navbarTop {
+	position : relative;
+	height : 80px;
+
+}
+
+#onoffBtn {
+	position : absolute;
+	right : 1%;
+	top : 5%;
+}
+
+.onlineBtn {
+		background-color:lightgray;
+	}
+	
+	

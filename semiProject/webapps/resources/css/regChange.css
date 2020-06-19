@@ -1,0 +1,51 @@
+@charset "UTF-8";
+		
+		.leaveBtn {
+			background-color:lightgray;
+		}
+		
+		.selected {
+			background-color:#FFFED7;
+		}
+		#stuInfo, #documnetInfo {
+			float : left;
+			width : 50%;
+    	}
+    	
+    	#stuInfo h4 , #documentInfo h5{
+          display : inline;
+       }
+       
+       #stuInfo img {
+       	margin : 10px;
+          width : 65px;
+          hegith : 30px
+       }
+       
+       #documentInfo img {
+       	  margin : 10px;
+          width : 30px;
+          hegith : 30px
+       }
+       
+    	
+    	#userPicture {
+    		width : 65px;
+    		hegith : 30px
+    	}
+    	
+    	#uselaeve {
+    		width : 5px;
+    	}
+    	
+    	.regBtn {
+    		float:right;
+    	}
+    	
+    	#mytable2 thead {
+    		background-color:#F3F3F3;
+    	}
+    	
+    	.regChanges2{
+    		display : none;
+    	}

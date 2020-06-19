@@ -1,0 +1,396 @@
+@charset "UTF-8";
+
+.calendar-day {
+  width: 100px;
+  min-width: 100px;
+  max-width: 100px;
+  height: 80px;
+}
+.calendar-table {
+  margin: 0 auto;
+  width: 700px;
+}
+
+/*캘린더 안에서 일자 선택하면 칸 색깔변화*/
+.selected {
+  background-color: #eee;
+}
+
+/*해당월에서 벗어난 일자 색깔*/
+.outside .date {
+  color: #ccc;
+}
+.timetitle {
+  white-space: nowrap;
+  text-align: right;
+}
+.event {
+  border-top: 1px solid #b2dba1;
+  border-bottom: 1px solid #b2dba1;
+  
+  /* 스케줄 초록색바 그라데이션*/
+  background-image: linear-gradient(to bottom, #dff0d8 0px, #c8e5bc 100%);
+  
+  /* 스케줄 초록색바 막대기 반복*/
+  background-repeat: repeat-x;
+
+  
+   /* 스케줄 초록색바 글씨색*/
+  color: black;
+  border-width: 1px;
+  font-size: .75em;
+  padding: 0 .75em;
+  line-height: 2em;
+  
+  /* white-space는 스페이스와 탭, 줄바꿈, 자동줄바꿈을 어떻게 처리할지 정하는 속성입니다.
+  	 참고 : https://www.codingfactory.net/10597 */
+  white-space: nowrap;
+  
+  /* overflow 속성은 요소의 박스에 내용이 더 길때 어떻게 보일지 선택하는 속성
+  	 참고 : https://aboooks.tistory.com/84 */
+  overflow: hidden;
+  
+  /* 칸보다 내용이 더 길때 ...으로 나오게 해줌
+  	  ex) 1) 동해물과 백두산이 마르고
+			2) 동해물과 백두산 ...
+  */
+  text-overflow: ellipsis;
+  
+  margin-bottom: 1px;
+}
+.event.begin {
+  border-left: 1px solid #b2dba1;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.event.end {
+  border-right: 1px solid #b2dba1;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.event.all-day {
+  border-top: 1px solid #9acfea;
+  border-bottom: 1px solid #9acfea;
+  
+  /* 파란색 스케줄막대기 색깔 그라데이션*/
+  background-image: linear-gradient(to bottom, #d9edf7 0px, #b9def0 100%);
+  
+  /* 파란색 스케줄 막대기 반복*/
+  background-repeat: repeat-x;
+  
+  /* 파란색 스케줄 막대기 글자색*/
+  color: black;
+  border-width: 1px;
+}
+.event.all-day.begin {
+  border-left: 1px solid #9acfea;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.event.all-day.end {
+  border-right: 1px solid #9acfea;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.event.clear {
+  background: none;
+  
+  /* transparent 투명도*/
+  border: 1px solid transparent;
+  										
+}
+.table-tight > thead > tr > th,
+.table-tight > tbody > tr > th,
+.table-tight > tfoot > tr > th,
+.table-tight > thead > tr > td,
+.table-tight > tbody > tr > td,
+.table-tight > tfoot > tr > td {
+  padding-left: 0;
+  padding-right: 0;
+}
+.table-tight-vert > thead > tr > th,
+.table-tight-vert > tbody > tr > th,
+.table-tight-vert > tfoot > tr > th,
+.table-tight-vert > thead > tr > td,
+.table-tight-vert > tbody > tr > td,
+.table-tight-vert > tfoot > tr > td {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#container theme-showcase {
+	float : center;
+}
+#keyword{
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    width: 200px;
+  height: 50px;
+  border:none;
+}
+
+#keyword2{
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    width: 200px;
+  height: 50px;
+  border:none;
+}
+#searchBtn{
+	width: 80px;
+  height: 30px;
+  background: #1e88e5;
+  border: none;
+  font-size: 12pt;
+  float: center;
+  color: white;
+  padding-left: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor:pointer;
+}
+#searchBtn2{
+		width: 80px;
+  height: 30px;
+  background: #1e88e5;
+  border: none;
+  font-size: 12pt;
+  float: center;
+  color: white;
+  padding-left: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor:pointer;
+}
+#writeBtn{
+		width: 80px;
+  height: 30px;
+  background: #1e88e5;
+  border: none;
+  font-size: 12pt;
+  float: center;
+  color: white;
+  padding-left: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor:pointer;
+}
+  
+  #writeBtn2{
+		width: 80px;
+  height: 30px;
+  background: #1e88e5;
+  border: none;
+  font-size: 12pt;
+  float: center;
+  color: white;
+  padding-left: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor:pointer;
+}
+#searchCondition{
+	width: 100px;
+  height: 40px;
+  background: #1e88e5;
+  border: none;
+  font-size: 12pt;
+  float: center;
+  color: white;
+  padding-left: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  
+}
+
+#searchCondition1{
+	width: 100px;
+  height: 40px;
+  background: #1e88e5;
+  border: none;
+  font-size: 12pt;
+  float: center;
+  color: white;
+  padding-left: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding-top: -20px;
+}
+
+#noticebtn{
+  background: none;
+  border: 3px solid #1e88e5;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+  -webkit-transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+  transition: 0.2s ease-in; 
+  font-weight: bold;
+  }
+  #page{
+  background: none;
+  border: none;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+  -webkit-transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+  transition: 0.2s ease-in; 
+  font-weight: bold;
+  cursor:pointer;
+  }
+  
+    #page1{
+  background: none;
+  border: none;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+  -webkit-transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+  transition: 0.2s ease-in; 
+  font-weight: bold;
+  cursor:pointer;
+  }
+  #page2{
+  background: none;
+  border: none;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+  -webkit-transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+  transition: 0.2s ease-in; 
+  font-weight: bold;
+  cursor:pointer;
+  }
+  
+  #page3{
+  background: none;
+  border: none;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+  -webkit-transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+  transition: 0.2s ease-in; 
+  font-weight: bold;
+  cursor:pointer;
+  }
+  
+ #pageBtn{
+ cursor:pointer;
+ background:none;
+ border:none;
+ } 
+ 
+ #aa{
+   font-weight: 500;
+   font-size: x-large;
+   
+ }
+  .nav-item{
+ 		color:black;
+ 		background: white ;
+	    width:600px;
+        border:none;
+        font-weight: bold;
+        text-align: center;
+  }
+. nav-link active{
+	border:none;	
+}
+  .nav nav-tabs profile-tab{
+ 		color:black;
+ 		background: black;
+        background: #1D375F;
+  }
+.notice1{
+	border-style: none;
+	border:1px;
+}
+
+#noticeBtn3{
+	background:none;
+	border:none;
+	color:#67757c;
+	 cursor:pointer;
+
+
+}
+
+#noticeBtn4{
+	background:none;
+	border:none;
+	color:#67757c;
+	float:right;	
+	
+}
+#noticeBtn5{
+	background:none;
+	border:none;	
+	cursor:pointer;
+}
+
+#noticeBtn6{
+	background:none;
+	border:none;
+	cursor:pointer;
+	
+}
+#noticeContent{
+	 font-weight: 400;
+   font-size: large;
+}
+
+#boardtitle{
+	font-weight: 400;
+   font-size: large;
+}
+
+
+
+ #bb{
+   font-weight: 500;
+   font-size: x-large;
+ }
+ 
+ 
+#boardBtn1{
+	background:none;
+	border:none;
+	color:#67757c;
+	 cursor:pointer;
+}
+
+#boardBtn2{
+	background:none;
+	border:none;
+	color:#67757c;
+	 cursor:pointer;
+}
+
+#boardBtn3{
+	background:none;
+	border:none;
+	color:#67757c;
+	 cursor:pointer;
+}
+
+.replyWriteArea{
+	background: none; 
+	
+
+	
+}
+ #replySelectArea{
+	background: none; 
+	background-color:none; 
+	margin: -180px;
+ }

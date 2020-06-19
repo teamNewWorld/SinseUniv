@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+	   
+       #stuInfo{
+	       float : left;
+	       margin : 20px 0 0 10px;
+       }
+      
+        #searchDateArea{
+       position : absolute;
+       right : 10px;
+       top : 45px;
+       }
+       
+       #stuInfo h4 {
+          display : inline;
+       }
+       
+       #stuInfo img {
+       	margin : 10px;
+        width : 65px;
+        hegith : 30px
+       }
+
+ 	#searchDateArea button{
+ 	border : none;
+ 	width : 50px;
+ 	bacground : white;
+ }

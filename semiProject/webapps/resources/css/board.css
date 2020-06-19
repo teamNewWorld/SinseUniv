@@ -1,0 +1,62 @@
+@charset "EUC-KR";
+
+	.replyArea {
+		width:800px;
+		color:none;
+		background:none;
+		margin-left:auto;
+		margin-right:auto;
+		padding-bottom : 5px;
+	}
+	#replySelectArea{
+  top: 100px;
+	}
+	.replyArea textArea {
+		border-radius: 10px;
+		resize: none;
+	}
+	a:link {
+    	color: yellow;
+	}
+	a:active {
+		color: aqua;
+	}
+	table[class*="replyList"] * {
+		color: black;
+		
+	}
+	.updateBtn{
+		background:none;
+		border:none;
+		cursor:pointer;
+	}
+	.deleteBtn{
+		background:none;
+		border:none;
+	 	cursor:pointer;
+	}
+	.comment replyList{
+	background-color:none;
+	border:none;
+	}
+	.replyList1 td{
+		background : none; 
+		margin-bottm:50px;
+		margin-top:50px;
+		}
+	.replyList2 td{
+		background : none; 
+		}
+	.replyList3 td{
+	 background : none; 
+	 }
+#boardBtn4{
+	background : none; 
+	border:none;
+	cursor:pointer;
+}
+#boardBtn5{
+	background : none; 
+	border:none;
+	cursor:pointer;
+}
