@@ -77,7 +77,7 @@
 			                        <td><%=tp.getEnrollyn() %></td>
 			                        <td><button type="button" class="btn btn-primary"
 			                        onclick="window.open('/semiProject/selectOne.to?enrolldate=<%=tp.getEnrolldate()%>&studentNo=<%=s.getStudentNo()%>'
-			                        		,'등록금고지서','width=500,height=765,scrollbars=yes');return false">출 력</button></td>
+			                        		,'등록금고지서','width=500,height=700,scrollbars=yes');return false">출 력</button></td>
                      			</tr>
 								<% } %>
                          	 </tbody>
