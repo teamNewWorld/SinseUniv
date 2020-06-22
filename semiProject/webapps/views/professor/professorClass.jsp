@@ -95,7 +95,7 @@
 								<%= pfc.getDays() %>
 								</td>
 								<td><input type="button" class="btn btn-primary"
-									onclick="window.open('/semiProject/views/professor/classPlan.jsp','강의계획서','width=625,height=955,scrollbars=yes');return false"
+									onclick="window.open('/semiProject/views/professor/classPlan.jsp','강의계획서','width=625,height=720,scrollbars=yes');return false"
 									value="계획수정"></td>
 								<td><input type="button" class="btn btn-danger" id="setGrade"
 									value="성적부과"></td>
