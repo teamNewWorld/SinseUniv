@@ -50,6 +50,12 @@ public class BoardService {
 			con = getConnection();
 			Board b = bDAO.selectOne(con, bno);
 			
+			if(b != null) {
+				int result = bDAO.updateReadCount(con, bno);
+				
+				if(result > 0) commit(con);
+				else rollback(con);
+			}
 			
 			close(con);
 			return b;
