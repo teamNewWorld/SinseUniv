@@ -95,7 +95,6 @@
 								<%= pfc.getDays() %>
 								</td>
 								<td><input type="button" class="btn btn-primary"
-									onclick="window.open('/semiProject/views/professor/classPlan.jsp','강의계획서','width=625,height=720,scrollbars=yes');return false"
 									value="계획수정"></td>
 								<td><input type="button" class="btn btn-danger" id="setGrade"
 									value="성적부과"></td>
@@ -136,6 +135,14 @@
 			 var pfcSemester = $(this).parent().siblings().eq(1).children().val();
 			 var pfcClsNo = $(this).parent().siblings().eq(2).children().val();
 			location.href="/semiProject/pStuManage.do?pfcYear="+pfcYear+"&pfcSemester="+pfcSemester+"&pfcClsNo="+pfcClsNo;
+
+		 });
+		 
+		 $('.btn-primary').click(function(){
+			 var pfcYear = $(this).parent().siblings().eq(0).children().val();
+			 var pfcSemester = $(this).parent().siblings().eq(1).children().val();
+			 var pfcClsNo = $(this).parent().siblings().eq(2).children().val();
+			location.href="/semiProject/pClsPlan.do?pfcYear="+pfcYear+"&pfcSemester="+pfcSemester+"&pfcClsNo="+pfcClsNo;
 
 		 });
 		 

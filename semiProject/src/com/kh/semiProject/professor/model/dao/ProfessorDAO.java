@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.semiProject.professor.model.vo.Achievement;
+import com.kh.semiProject.professor.model.vo.ClsPlan;
 import com.kh.semiProject.professor.model.vo.ProfessorClass;
 
 public class ProfessorDAO {
@@ -195,7 +196,7 @@ public class ProfessorDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectOneClass");
+		String sql = prop.getProperty("selectClass");
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -223,6 +224,73 @@ public class ProfessorDAO {
 		} finally {
 			close(rset);
 			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public ClsPlan selectOneClass(Connection con, String classNo, int year) {
+		ClsPlan result = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectOneClass");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, classNo);
+			pstmt.setInt(2, year);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				result = new ClsPlan();
+			result.setCls_no(rset.getString("cls_no"));
+			result.setCls_name(rset.getString("class_name"));
+			result.setCls_type(rset.getString("class_type"));
+			result.setGoal(rset.getString("goal"));
+			result.setBook(rset.getString("book"));
+			result.setpGrade(rset.getString("p_grade"));
+			result.setpGrade2(rset.getString("p_grade2"));
+			result.setpPlan(rset.getString("p_plan"));
+			result.setEtc(rset.getString("etc"));
+			result.setCheat(rset.getString("cheat"));
+			result.setYear(year);
+			
+			
+		
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int updateClsPlan(Connection con, ClsPlan cp) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateBoard");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cp.getBtitle());
+			pstmt.setString(2, cp.getBcontent());
+			pstmt.setInt(3, cp.getBno());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		
+		}finally {
+			close(pstmt);
+			
 		}
 		
 		return result;
