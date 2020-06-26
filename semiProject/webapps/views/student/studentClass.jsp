@@ -73,6 +73,8 @@
 						<tbody>
 							<% for(Sugang sg : list){ %>
 							<tr>
+							<input type="hidden" name="year" value="<%= sg.getYear()%>">
+							<input type="hidden" name="clsNo" value="<%= sg.getCls_no()%>">
 								<td><%= sg.getYear()%></td>
 								<td><%= sg.getSemester() %></td>
 								<td><%= sg.getCls_no() %></td>
@@ -107,6 +109,14 @@
 		 var smt = $('#semester').val();
 		 
 		 location.href="<%=request.getContextPath()%>/sgsmt.do?sno=<%=s.getStudentNo()%>&year="+yy+"&smt="+smt;
+	 });
+	 
+	 
+	 $('#mytable td').click(function(){
+		 var year = $(this).siblings().eq(0).val();
+		 var clsNo = $(this).siblings().eq(1).val();
+		 
+		 location.href="<%=request.getContextPath()%>/stClsPlan.do?cls_no="+clsNo+"&year="+year;
 	 });
 	 
  });
