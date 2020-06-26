@@ -34,6 +34,7 @@
 	<link href="/semiProject/resources/css/stuInfo.css" rel="stylesheet">
 	<link href="/semiProject/resources/css/common.css" rel="stylesheet">
 	<link href="/semiProject/resources/css/main.css" rel="stylesheet">
+	<link href="/semiProject/resources/css/classPlan.css" rel="stylesheet">
 	<link href="/semiProject/resources/css/board.css" rel="stylesheet">
     <link href="/semiProject/resources/css/regChange.css" rel="stylesheet" type="text/css">
     <!-- You can change the theme colors from here -->

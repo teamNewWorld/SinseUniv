@@ -1,13 +1,16 @@
 package com.kh.semiProject.professor.model.service;
 
 import static com.kh.semiProject.common.JDBCTemplate.close;
+import static com.kh.semiProject.common.JDBCTemplate.commit;
 import static com.kh.semiProject.common.JDBCTemplate.getConnection;
+import static com.kh.semiProject.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.kh.semiProject.professor.model.dao.ProfessorDAO;
 import com.kh.semiProject.professor.model.vo.Achievement;
+import com.kh.semiProject.professor.model.vo.ClsPlan;
 import com.kh.semiProject.professor.model.vo.ProfessorClass;
 
 public class ProfessorService {
@@ -64,4 +67,43 @@ public class ProfessorService {
 		
 		return result;
 	}
+
+	public ClsPlan selectOneClass(String classNo, int year) {
+		con = getConnection();
+		
+		ClsPlan result = pfDAO.selectOneClass(con, classNo, year);
+		
+		close(con);
+		
+		return result;
+	}
+
+	public int updateClsPlan(ClsPlan cp) {
+		con = getConnection();
+		
+		int result = pfDAO.updateClsPlan(con, cp);
+		
+		if(result > 0) commit(con);
+		else rollback(con);
+		
+		close(con);
+		
+		return result;
+		
+	}
+
+	public int insertClsPlan(ClsPlan cp) {
+		con = getConnection();
+		
+		int result = pfDAO.insertClsPlan(con, cp);
+		
+		if(result > 0) commit(con);
+		else rollback(con);
+		
+		close(con);
+		
+		return result;
+	}
+	
+	
 }

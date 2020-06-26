@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.semiProject.professor.model.vo.Achievement;
+import com.kh.semiProject.professor.model.vo.ClsPlan;
 import com.kh.semiProject.professor.model.vo.ProfessorClass;
 
 public class ProfessorDAO {
@@ -195,7 +196,7 @@ public class ProfessorDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectOneClass");
+		String sql = prop.getProperty("selectClass");
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -224,6 +225,110 @@ public class ProfessorDAO {
 			close(rset);
 			close(pstmt);
 		}
+		
+		return result;
+	}
+
+	public ClsPlan selectOneClass(Connection con, String classNo, int year) {
+		ClsPlan result = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectOneClass");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, classNo);
+			pstmt.setInt(2, year);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				result = new ClsPlan();
+			result.setCls_no(rset.getString("cls_no"));
+			result.setCls_name(rset.getString("class_name"));
+			result.setCls_type(rset.getString("class_type"));
+			result.setGoal(rset.getString("goal"));
+			result.setBook(rset.getString("book"));
+			result.setpGrade(rset.getString("p_grade"));
+			result.setpGrade2(rset.getString("p_grade2"));
+			result.setpPlan(rset.getString("p_plan"));
+			result.setEtc(rset.getString("etc"));
+			result.setCheat(rset.getString("cheat"));
+			result.setYear(year);
+			
+			
+		
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int updateClsPlan(Connection con, ClsPlan cp) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateClsPlan");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cp.getGoal());
+			pstmt.setString(2, cp.getBook());
+			pstmt.setString(3, cp.getpGrade());
+			pstmt.setString(4, cp.getpGrade2());
+			pstmt.setString(5, cp.getpPlan());
+			pstmt.setString(6, cp.getEtc());
+			pstmt.setString(7, cp.getCheat());
+			pstmt.setString(8, cp.getCls_no());
+			pstmt.setInt(9, cp.getYear());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		
+		}finally {
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
+	public int insertClsPlan(Connection con, ClsPlan cp) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertClsPlan");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cp.getCls_no());
+			pstmt.setInt(2, cp.getYear());
+			pstmt.setString(3, cp.getGoal());
+			pstmt.setString(4, cp.getBook());
+			pstmt.setString(5, cp.getpGrade());
+			pstmt.setString(6, cp.getpGrade2());
+			pstmt.setString(7, cp.getpPlan());
+			pstmt.setString(8, cp.getEtc());
+			pstmt.setString(9, cp.getCheat());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		
+		}finally {
+			close(pstmt);
+			
+		}
+
 		
 		return result;
 	}

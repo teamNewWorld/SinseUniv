@@ -1,0 +1,12 @@
+@charset "EUC-KR";
+	#clsPlnTable tr td {
+		border : 1px solid black;
+	}
+	
+	.textarea {
+		 border-style: none;
+        border-color: Transparent;
+        overflow: auto;
+        outline: none;
+        resize : none;
+	}

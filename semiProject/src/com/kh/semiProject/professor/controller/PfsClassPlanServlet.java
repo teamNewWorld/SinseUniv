@@ -1,7 +1,6 @@
 package com.kh.semiProject.professor.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,21 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.semiProject.professor.model.service.ProfessorService;
 import com.kh.semiProject.professor.model.vo.Achievement;
-import com.kh.semiProject.professor.model.vo.ProfessorClass;
-
-import jdk.nashorn.api.scripting.NashornException;
+import com.kh.semiProject.professor.model.vo.ClsPlan;
 
 /**
- * Servlet implementation class PfsStuManageService
+ * Servlet implementation class PfsClassPlanServlet
  */
-@WebServlet("/pStuManage.do")
-public class PfsStuManageServlet extends HttpServlet {
+@WebServlet("/pClsPlan.do")
+public class PfsClassPlanServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PfsStuManageServlet() {
+    public PfsClassPlanServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,8 +31,8 @@ public class PfsStuManageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Achievement> list = new ArrayList<Achievement>();
 		Achievement a = new Achievement();
+		ClsPlan cp = new ClsPlan();
 		String page = "";
 		
 		int year = Integer.parseInt(request.getParameter("pfcYear"));
@@ -44,21 +41,15 @@ public class PfsStuManageServlet extends HttpServlet {
 		
 		ProfessorService pfs = new ProfessorService();
 		
-		System.out.println(year + classNo);
-		
-		list=pfs.stuManage(classNo, year, semester);
-		request.setAttribute("list", list);
-		
-		int cnt = pfs.stuCount(classNo, year, semester);
-		request.setAttribute("cnt", cnt);
+		cp = pfs.selectOneClass(classNo, year);
+		request.setAttribute("ClsPlan", cp);
 		
 		a = pfs.selectClass(classNo, year, semester);
 		request.setAttribute("Achievement", a);
 		
-		page = "views/professor/stuGradeCheck.jsp";
+		page = "views/professor/classPlan.jsp";
 		
-		request.getRequestDispatcher(page).forward(request, response);		
-		
+		request.getRequestDispatcher(page).forward(request, response);
 	}
 
 	/**
