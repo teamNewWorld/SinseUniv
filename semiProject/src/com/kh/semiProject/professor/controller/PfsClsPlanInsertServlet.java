@@ -1,7 +1,6 @@
 package com.kh.semiProject.professor.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +11,16 @@ import com.kh.semiProject.professor.model.service.ProfessorService;
 import com.kh.semiProject.professor.model.vo.ClsPlan;
 
 /**
- * Servlet implementation class PfsClsPlanUpdateServlet
+ * Servlet implementation class PfsClsPlanInsertServlet
  */
-@WebServlet("/cpUpdate.do")
-public class PfsClsPlanUpdateServlet extends HttpServlet {
+@WebServlet("/cpInsert.do")
+public class PfsClsPlanInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PfsClsPlanUpdateServlet() {
+    public PfsClsPlanInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -60,19 +59,16 @@ public class PfsClsPlanUpdateServlet extends HttpServlet {
 		cp.setYear(year);
 		
 		try {
-			int result = pfs.updateClsPlan(cp);
+			int result = pfs.insertClsPlan(cp);
 			
 			response.sendRedirect("pfclslist.do?pno="+pno);
 			
 		} catch (Exception e) {
 			request.setAttribute("exception", e);
-			request.setAttribute("msg", "강의계획서 수정 실패!!");
+			request.setAttribute("msg", "강의계획서 추가 실패!!");
 			request.getRequestDispatcher("views/common/errorPage.jsp")
 			.forward(request, response);
-		}
-		
-		
-	}
+		}	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -81,4 +77,5 @@ public class PfsClsPlanUpdateServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }

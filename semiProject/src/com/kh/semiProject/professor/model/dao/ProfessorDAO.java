@@ -275,13 +275,19 @@ public class ProfessorDAO {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("updateBoard");
+		String sql = prop.getProperty("updateClsPlan");
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, cp.getBtitle());
-			pstmt.setString(2, cp.getBcontent());
-			pstmt.setInt(3, cp.getBno());
+			pstmt.setString(1, cp.getGoal());
+			pstmt.setString(2, cp.getBook());
+			pstmt.setString(3, cp.getpGrade());
+			pstmt.setString(4, cp.getpGrade2());
+			pstmt.setString(5, cp.getpPlan());
+			pstmt.setString(6, cp.getEtc());
+			pstmt.setString(7, cp.getCheat());
+			pstmt.setString(8, cp.getCls_no());
+			pstmt.setInt(9, cp.getYear());
 			
 			result = pstmt.executeUpdate();
 			
@@ -292,6 +298,37 @@ public class ProfessorDAO {
 			close(pstmt);
 			
 		}
+		
+		return result;
+	}
+
+	public int insertClsPlan(Connection con, ClsPlan cp) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertClsPlan");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cp.getCls_no());
+			pstmt.setInt(2, cp.getYear());
+			pstmt.setString(3, cp.getGoal());
+			pstmt.setString(4, cp.getBook());
+			pstmt.setString(5, cp.getpGrade());
+			pstmt.setString(6, cp.getpGrade2());
+			pstmt.setString(7, cp.getpPlan());
+			pstmt.setString(8, cp.getEtc());
+			pstmt.setString(9, cp.getCheat());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		
+		}finally {
+			close(pstmt);
+			
+		}
+
 		
 		return result;
 	}

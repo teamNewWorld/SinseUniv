@@ -91,6 +91,19 @@ public class ProfessorService {
 		return result;
 		
 	}
+
+	public int insertClsPlan(ClsPlan cp) {
+		con = getConnection();
+		
+		int result = pfDAO.insertClsPlan(con, cp);
+		
+		if(result > 0) commit(con);
+		else rollback(con);
+		
+		close(con);
+		
+		return result;
+	}
 	
 	
 }
