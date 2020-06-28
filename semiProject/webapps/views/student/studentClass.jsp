@@ -116,7 +116,7 @@
 		 var year = $(this).siblings().eq(0).val();
 		 var clsNo = $(this).siblings().eq(1).val();
 		 
-		 location.href="<%=request.getContextPath()%>/stClsPlan.do?cls_no="+clsNo+"&year="+year;
+		 location.href="<%=request.getContextPath()%>/stClsPlan.do?clsNo="+clsNo+"&year="+year;
 	 });
 	 
  });

@@ -5,13 +5,7 @@
 	Exception e = (Exception)request.getAttribute("exception");
 	
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Service ERROR</title>
-</head>
-<body>
+
 <%@ include file="../common/header.jsp" %>
 	
 	<div class="outer">
@@ -24,5 +18,3 @@
 	
 	</div>
 <%@ include file="../common/footer.jsp" %>
-</body>
-</html>

@@ -37,7 +37,7 @@ public class SugangService {
 		Sugang s = sgDAO.selectClsPlan(con, clsNo, year);
 		
 		close(con);
-		
+
 		return s;
 	}
 }

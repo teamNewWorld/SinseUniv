@@ -1,6 +1,10 @@
 package com.kh.semiProject.professor.model.vo;
 
-public class ClsPlan extends ProfessorClass {
+import java.io.Serializable;
+
+public class ClsPlan extends ProfessorClass implements Serializable {
+
+	private static final long serialVersionUID = 444L;
 	
 	private String goal;
 	private String book;

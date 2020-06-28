@@ -1,12 +1,14 @@
 package com.kh.semiProject.Student.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.semiProject.Student.model.service.SugangService;
 import com.kh.semiProject.Student.model.vo.Sugang;
@@ -32,22 +34,26 @@ public class StuClsPlanSelectServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String clsNo = request.getParameter("clsNo");
 		int year = Integer.parseInt(request.getParameter("year"));
-		
+
 		SugangService sgs = new SugangService();
 		
-		Sugang s = sgs.selectClsPlan(clsNo, year);
+		Sugang su = sgs.selectClsPlan(clsNo, year);
 		
-		String page = " ";
+		HttpSession session = request.getSession();
 		
-		if(s != null) {
-			request.setAttribute("sugang", s);
-			page = "views/student/stClassPlan.jsp";
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+
+		if(su != null) {
+			session.setAttribute("sugang", su);
+			out.println("<script language='javascript'>window.open('/semiProject/views/student/stClassPlan.jsp','강의계획서','width=650,height=700,scrollbars=yes');history.go(-1);</script>");
+			//out.print("<script language='javascript'>history.go(-1);</script>" );
+			System.out.println("servlet su : " + su);
 		} else {
-			request.setAttribute("error-msg", "게시글 상세보기 실패!");
-			page = "views/common/errorPage.jsp";
+			out.print("<script language='javascript'>alert('등록된 강의계획서가 없습니다.');history.go(-1);</script>" );
+
 		}
 		
-		request.getRequestDispatcher(page).forward(request, response);
 
 	}
 
