@@ -1,6 +1,8 @@
 package com.kh.semiProject.Student.model.vo;
 
-public class Sugang {
+import com.kh.semiProject.professor.model.vo.ClsPlan;
+
+public class Sugang extends ClsPlan {
 
 	private String stu_no;
 	private String cls_no;

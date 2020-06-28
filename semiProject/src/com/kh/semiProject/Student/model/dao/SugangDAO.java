@@ -109,6 +109,28 @@ public class SugangDAO {
 		
 		return list;
 	}
+
+	public Sugang selectClsPlan(Connection con, String clsNo, int year) {
+		Sugang s = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectClsPlan");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, clsNo);
+			pstmt.setInt(2, year);
+			
+			rset = pstmt.executeQuery();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return s;
+	}
 	
 	
 }

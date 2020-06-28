@@ -32,4 +32,12 @@ public class SugangService {
 		
 		return list;		
 	}
+	public Sugang selectClsPlan(String clsNo, int year) {
+		con = getConnection();
+		Sugang s = sgDAO.selectClsPlan(con, clsNo, year);
+		
+		close(con);
+		
+		return s;
+	}
 }
