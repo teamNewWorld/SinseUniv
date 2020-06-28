@@ -47,7 +47,7 @@ public class SugangDAO {
 			while(rset.next()) {
 				Sugang sg = new Sugang();
 				
-				sg.setStu_no(rset.getString("STUNO"));
+				sg.setStudentNo(rset.getString("STUNO"));
 				sg.setCls_no(rset.getString("CLSNO"));
 				sg.setYear(rset.getInt("YEAR"));
 				sg.setSemester(rset.getInt("SEMESTER"));
@@ -88,7 +88,7 @@ public class SugangDAO {
 			while(rset.next()) {
 				Sugang sg = new Sugang();
 				
-				sg.setStu_no(rset.getString("STUNO"));
+				sg.setStudentNo(rset.getString("STUNO"));
 				sg.setCls_no(rset.getString("CLSNO"));
 				sg.setYear(rset.getInt("YEAR"));
 				sg.setSemester(rset.getInt("SEMESTER"));
@@ -125,10 +125,34 @@ public class SugangDAO {
 			
 			rset = pstmt.executeQuery();
 			
+			if(rset.next()) {
+				s = new Sugang();
+				
+				s.setCls_no(rset.getString("cls_no"));
+				s.setYear(rset.getInt("year"));
+				s.setGoal(rset.getString("goal"));
+				s.setBook(rset.getString("book"));
+				s.setpGrade(rset.getString("p_grade"));
+				s.setpGrade2(rset.getString("p_grade2"));
+				s.setpPlan(rset.getString("p_plan"));
+				s.setEtc(rset.getString("etc"));
+				s.setCheat(rset.getString("cheat"));
+				s.setDeptName(rset.getString("dept_name"));
+				s.setProfessorName(rset.getString("pro_name"));
+				s.setProPhone(rset.getString("pro_phone"));
+				s.setProEmail(rset.getString("pro_email"));
+				s.setCls_type(rset.getString("class_type"));
+				s.setCls_name(rset.getString("class_name"));
+				
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
 		}
-		
+
 		return s;
 	}
 	

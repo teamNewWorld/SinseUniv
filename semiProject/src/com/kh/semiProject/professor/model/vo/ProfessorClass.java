@@ -1,8 +1,10 @@
 package com.kh.semiProject.professor.model.vo;
 
+import java.io.Serializable;
+
 import com.kh.semiProject.member.model.vo.Student;
 
-public class ProfessorClass extends Student {
+public class ProfessorClass extends Student implements Serializable {
 	private String prf_no;
 	private String cls_no;
 	private String cls_name;
